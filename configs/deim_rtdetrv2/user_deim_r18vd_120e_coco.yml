@@ -1,0 +1,37 @@
+__include__: [
+  './rtdetrv2_r18vd_120e_coco.yml',
+  '../base/rt_deim.yml',
+]
+
+output_dir: ./outputs/deim_rtdetrv2_r18vd_120e_coco
+
+optimizer:
+  type: AdamW
+  params:
+    - 
+      params: '^(?=.*(?:norm|bn)).*$'
+      weight_decay: 0.
+
+  lr: 0.0002
+  betas: [0.9, 0.999]
+  weight_decay: 0.0001
+
+# change part
+epoches: 400 #120
+flat_epoch: 204    # 4 + 120 / 2
+no_aug_epoch: 20 # 3
+checkpoint_freq: 50    # save freq
+
+train_dataloader: 
+  dataset: 
+    transforms:
+      policy:
+        epoch: [4, 204, 380]   # list
+  total_batch_size: 8  # total batch size equals to 16 (4 * 4)
+  collate_fn:
+    mixup_prob: 0.1
+    mixup_epochs: [4, 204]
+    stop_epoch: 204
+
+val_dataloader:
+  total_batch_size: 8

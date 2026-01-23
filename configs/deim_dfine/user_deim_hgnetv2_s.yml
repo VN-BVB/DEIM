@@ -1,0 +1,43 @@
+__include__: [
+  './dfine_hgnetv2_s_coco.yml',
+  '../base/deim.yml'
+]
+
+output_dir: ./outputs/deim_hgnetv2_s_coco
+
+optimizer:
+  type: AdamW
+  params: 
+    - 
+      params: '^(?=.*backbone)(?!.*(bn|norm)).*$'
+      lr: 0.0002
+    - 
+      params: '^(?=.*(?:norm|bn)).*$'     # except bias
+      weight_decay: 0.
+
+  lr: 0.0004
+  betas: [0.9, 0.999]
+  weight_decay: 0.0001
+
+
+# Increase to search for the optimal ema
+epoches: 400 # 120 + 4n
+
+## Our LR-Scheduler
+flat_epoch: 204    # 4 + epoch // 2, e.g., 40 = 4 + 72 / 2
+no_aug_epoch: 20
+
+## Our DataAug
+train_dataloader: 
+  dataset: 
+    transforms:
+      policy:
+        epoch: [4, 204, 380]   # list
+  total_batch_size: 8  # total batch size equals to 16 (4 * 4)
+  collate_fn:
+    mixup_prob: 0.4
+    mixup_epochs: [4, 204]
+    stop_epoch: 380
+    base_size_repeat: ~
+val_dataloader:
+  total_batch_size: 8
