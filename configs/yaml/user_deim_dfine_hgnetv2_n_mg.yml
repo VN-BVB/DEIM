@@ -10,39 +10,39 @@ output_dir: ./outputs/deim_hgnetv2_n_custom
 model: DEIM_MG
 
 DEIM_MG:
-  yaml_path: configs/cfg/dfine-n.yaml
+  yaml_path: D:/YOLO/DEIM/DEIM_20251224/DEIM/configs/cfg/dfine-n.yaml
   pretrained: D:/YOLO/DEIM/DEIM_20251224/DEIM/weight/hgnetv2/deim_dfine_hgnetv2_n_coco_160e_MG.pth
 optimizer:
-  type: AdamW
-  params:
-    -
-      params: '^(?=.*backbone)(?!.*norm|bn).*$'
-      lr: 0.0004
-    -
-      params: '^(?=.*backbone)(?=.*norm|bn).*$'
-      lr: 0.0004
-      weight_decay: 0.
-    -
-      params: '^(?=.*(?:encoder|decoder))(?=.*(?:norm|bn|bias)).*$'
-      weight_decay: 0.
+#  type: AdamW
+#  params:
+#    -
+#      params: '^(?=.*backbone)(?!.*norm|bn).*$'
+#      lr: 0.0004
+#    -
+#      params: '^(?=.*backbone)(?=.*norm|bn).*$'
+#      lr: 0.0004
+#      weight_decay: 0.
+#    -
+#      params: '^(?=.*(?:encoder|decoder))(?=.*(?:norm|bn|bias)).*$'
+#      weight_decay: 0.
+#
+#  lr: 0.0008
+#  betas: [0.9, 0.999]
+#  weight_decay: 0.0001
+   type: SGD
+   params:
+     - params: '^(?=.*backbone)(?!.*norm|bn).*$'
+       lr: 0.001
+     - params: '^(?=.*backbone)(?=.*norm|bn).*$'
+       lr: 0.001
+       weight_decay: 0.
+     - params: '^(?=.*(?:encoder|decoder))(?=.*(?:norm|bn|bias)).*$'
+       weight_decay: 0.
 
-  lr: 0.0008
-  betas: [0.9, 0.999]
-  weight_decay: 0.0001
-  # type: SGD
-  # params:
-  #   - params: '^(?=.*backbone)(?!.*norm|bn).*$'
-  #     lr: 0.001
-  #   - params: '^(?=.*backbone)(?=.*norm|bn).*$'
-  #     lr: 0.001
-  #     weight_decay: 0.
-  #   - params: '^(?=.*(?:encoder|decoder))(?=.*(?:norm|bn|bias)).*$'
-  #     weight_decay: 0.
-
-  # lr: 0.01
-  # momentum: 0.9
-  # weight_decay: 0.0005
-  # nesterov: True
+   lr: 0.001
+   momentum: 0.9
+   weight_decay: 0.0005
+   nesterov: True
 
 # Increase to search for the optimal ema
 epoches: 400 # 148 + 12

@@ -339,11 +339,11 @@ if __name__ == '__main__':
     import argparse
     parser = argparse.ArgumentParser()
     parser.add_argument('-p', '--path', type=str,
-                        default='D:/YOLO/DEIM/DEIM_20251224/DEIM/deim_outputs/deim_hgnetv2_n_test/best_stg2.engine')
+                        default=r'D:\YOLO\DEIM\DEIM_20251224\DEIM\outputs\deim_hgnetv2_n_custom12\best_stg1.engine')
     parser.add_argument('-i', '--input', type=str,
-                        default='D:/YOLO/yolo-utils/dataset/weldArea/YOLO_Format/images/val')
-    parser.add_argument('-o', '--output', type=str, default='D:/YOLO/DEIM/DEIM_20251224/DEIM/deim_outputs/inference_results/exp')
-    parser.add_argument('-t', '--thrh', type=float, default=0.1)
+                        default=r'D:\YOLO\dataset\RomWeldArea\images\val')
+    parser.add_argument('-o', '--output', type=str, default='D:/YOLO/DEIM/DEIM_20251224/DEIM/inference_results/exp')
+    parser.add_argument('-t', '--thrh', type=float, default=0.5)
     parser.add_argument('-d', '--device', type=str, default='cuda:0')
     args = parser.parse_args()
     main(args)

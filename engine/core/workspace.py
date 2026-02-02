@@ -177,4 +177,9 @@ def create(type_or_name, global_cfg=GLOBAL_CONFIG, **kwargs):
     # if len(extra_args) > 0:
     #     raise RuntimeError(f'Error: unknown args {extra_args} for {module}')
 
-    return module(**module_kwargs)    
+     # Filter out incompatible parameters for specific optimizer types
+    if name == 'SGD' and 'betas' in module_kwargs:
+        # Remove 'betas' parameter if present for SGD optimizer since it doesn't support it
+        del module_kwargs['betas']
+    
+    return module(**module_kwargs)     

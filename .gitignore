@@ -154,3 +154,6 @@ vis_masks/
 
 configs/test/cutmark.yml
 configs/test/dfine_hgnetv2_s_seg.yml
+dataset/YOLO_Format/labels/train/
+dataset/YOLO_Format/labels/val/
+dataset/YOLO_Format/annotations/

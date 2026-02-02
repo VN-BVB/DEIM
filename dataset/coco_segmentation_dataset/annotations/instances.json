@@ -1,0 +1,26 @@
+{
+  "images": [],
+  "annotations": [],
+  "categories": [
+    {
+      "id": 0,
+      "name": "planar_planar_weld",
+      "supercategory": "object"
+    },
+    {
+      "id": 1,
+      "name": "cylindrical_planar_fillet_weld",
+      "supercategory": "object"
+    },
+    {
+      "id": 2,
+      "name": "cylindrical_planar_butt_weld",
+      "supercategory": "object"
+    },
+    {
+      "id": 3,
+      "name": "cylindrical_cylindrical_weld",
+      "supercategory": "object"
+    }
+  ]
+}

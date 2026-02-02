@@ -1,0 +1,4 @@
+1 planar_planar_weld 244 108 59 
+2 cylindrical_planar_fillet_weld 99 102 129 
+3 cylindrical_planar_butt_weld 249 193 0 
+4 cylindrical_cylindrical_weld 160 180 0 
