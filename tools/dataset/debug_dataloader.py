@@ -11,7 +11,7 @@ logger = get_logger(__name__)
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('-c', '--config', type=str, default='D:\YOLO\DEIM\DEIM_20251224\DEIM\configs\seg\define-n-seg_MG.yml')
-    parser.add_argument('-n', '--num', type=int, default=20)
+    parser.add_argument('-n', '--num', type=int, default=30)
     parser.add_argument('-s', '--split', type=str, default='train', choices=['train', 'valid'])
     args = parser.parse_args()
 

@@ -161,10 +161,10 @@ def main(args):
 if __name__ == '__main__':
     import argparse
     parser = argparse.ArgumentParser()
-    parser.add_argument('-c', '--config', type=str, required=True)
-    parser.add_argument('-r', '--resume', type=str, required=True)
-    parser.add_argument('-i', '--input', type=str, required=True)
-    parser.add_argument('-o', '--output', type=str, default='inference_results/exp')
+    parser.add_argument('-c', '--config', type=str,default=r'D:\YOLO\DEIM\DEIM_20251224\DEIM\configs\seg\define-s-seg_MG.yml')
+    parser.add_argument('-r', '--resume', type=str, default=r'D:\YOLO\DEIM\DEIM_20251224\DEIM\outputs_Seg\dfine_hgnetv2_s_custom\best_stg1.pth')
+    parser.add_argument('-i', '--input', type=str, default=r'D:\YOLO\dataset\3EAweldArea\maskWeld\VOC\JPEGImages')
+    parser.add_argument('-o', '--output', type=str, default='D:/YOLO/DEIM/DEIM_20251224/DEIM/inference_results/exp')
     parser.add_argument('-t', '--thrh', type=float, default=0.2)
     parser.add_argument('-d', '--device', type=str, default='0')
     parser.add_argument('--track', action='store_true', default=False)

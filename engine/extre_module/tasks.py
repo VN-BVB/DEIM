@@ -15,6 +15,7 @@ from engine.deim.hybrid_encoder import RepNCSPELAN4, ConvNormLayer_fuse, SCDown,
 from engine.deim.dfine_decoder import DFINETransformer     
 from engine.deim.dq_dfine_decoder import DQDFINETransformer     
 from engine.deim.dfine_decoder_seg import DFINESegTransformer
+from engine.deim.dqs_dfine_decoder_seg import DQSDFINESegTransformer
      
 from engine.extre_module.ultralytics_nn.conv import Concat, Add, Conv 
 from engine.extre_module.ultralytics_nn.block import Bottleneck, C3_Block, C2f_Block, C3k2_Block, MetaFormer_Block, MetaFormer_Mona, MetaFormer_SEFN, MetaFormer_Mona_SEFN, NCHW2NLC2NCHW   
@@ -279,7 +280,7 @@ def parse_module(d, i, f, m, args, ch, nc=None, eval_spatial_size=None):
         c1 = [ch[x] for x in f]     
         c2 = args[0]
         args = [c1, c2, *args[1:]]
-    elif m in {DFINETransformer, DQDFINETransformer,DFINESegTransformer}:
+    elif m in {DFINETransformer, DQDFINETransformer,DFINESegTransformer,DQSDFINESegTransformer}:
         args["feat_channels"] = [ch[x] for x in f]
         args["num_classes"] = nc
         args["eval_spatial_size"] = eval_spatial_size 

@@ -9,13 +9,14 @@ __include__: [
 
 print_freq: 50
 output_dir: ./outputs_Seg/dfine_hgnetv2_n_custom
-eval_mask_ratio: 4 #验证集4倍下采样
+checkpoint_freq: 50
+eval_mask_ratio: 1 #验证集4倍下采样
 postprocessor: SegPostProcessor #后处理器
 model: DEIM_MG
 
 DEIM_MG:
   yaml_path: D:/YOLO/DEIM/DEIM_20251224/DEIM/configs/cfg/define-n-seg.yaml
-  pretrained: D:/YOLO/DEIM/DEIM_20251224/DEIM/weight/hgnetv2/PPHGNetV2_B0_stage1_MG.pth
+#  pretrained: D:/YOLO/DEIM/DEIM_20251224/DEIM/weight/hgnetv2/deim_dfine_hgnetv2_n_coco_160e_MG.pth
   
 DEIM:
   backbone: HGNetv2
@@ -38,6 +39,20 @@ optimizer:
   lr: 0.0008
   betas: [0.9, 0.999]
   weight_decay: 0.0001
+#  type: SGD
+#  params:
+#    - params: '^(?=.*backbone)(?!.*norm|bn).*$'
+#      lr: 0.001
+#    - params: '^(?=.*backbone)(?=.*norm|bn).*$'
+#      lr: 0.001
+#      weight_decay: 0.
+#    - params: '^(?=.*(?:encoder|decoder))(?=.*(?:norm|bn|bias)).*$'
+#      weight_decay: 0.
+#
+#  lr: 0.001
+#  momentum: 0.9
+#  weight_decay: 0.0005
+#  nesterov: True
 
 DEIMCriterion:
   weight_dict: {loss_vfl: 1, loss_bbox: 5, loss_giou: 2, loss_fgl: 0.15, loss_ddf: 1.5,loss_mask_ps_ce: 10.0,loss_mask_ps_dice: 5.0}
@@ -46,18 +61,17 @@ DEIMCriterion:
   gamma: 2.0
   reg_max: 32
 # Increase to search for the optimal ema
-epoches: 400 # 148 + 4n
+epoches: 800 # 148 + 4n
 
 train_dataloader:
   dataset:
     transforms:
       policy:
         name: stop_epoch
-        epoch: 300 # epoch in [71, ~) stop `ops`
-        ops: ['RandomPhotometricDistort', 'RandomZoomOut', 'RandomIoUCrop']
+        epoch: 500 # epoch in [71, ~) stop `ops`
   collate_fn:
     base_size_repeat: ~    
-    stop_epoch: 300
+    stop_epoch: 500
     ema_restart_decay: 0.9999
   total_batch_size: 4
   num_workers: 0
