@@ -13,8 +13,8 @@ train_dataloader:
   type: DataLoader
   dataset:
     type: CocoDetection
-    img_folder: D:/YOLO/DEIM/DEIM_20251224/DEIM/dataset/YOLO_Format/images/train
-    ann_file: D:/YOLO/DEIM/DEIM_20251224/DEIM/dataset/YOLO_Format/annotations/train.json
+    img_folder: ./dataset/YOLO_Format/images/train
+    ann_file: ./dataset/YOLO_Format/annotations/train.json
     return_masks: True
     transforms:
       type: Compose
@@ -31,8 +31,8 @@ val_dataloader:
   type: DataLoader
   dataset:
     type: CocoDetection
-    img_folder: D:/YOLO/DEIM/DEIM_20251224/DEIM/dataset/YOLO_Format/images/val
-    ann_file: D:/YOLO/DEIM/DEIM_20251224/DEIM/dataset/YOLO_Format/annotations/val.json
+    img_folder: ./dataset/YOLO_Format/images/val
+    ann_file: ./dataset/YOLO_Format/annotations/val.json
     return_masks: True
     transforms:
       type: Compose
