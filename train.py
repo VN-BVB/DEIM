@@ -128,7 +128,7 @@ if __name__ == '__main__':
     parser.add_argument('--use-amp', action='store_true', default=False)
     parser.add_argument('--output-dir', type=str, default=None)
     parser.add_argument('--summary-dir', type=str, default=None)
-    parser.add_argument('--test-only', action='store_true', default=False)
+    parser.add_argument('--test-only', action='store_true', default=True)
 
     parser.add_argument('-p', '--path', type=str, default=None)
     parser.add_argument(
