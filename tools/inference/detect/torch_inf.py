@@ -161,7 +161,7 @@ if __name__ == '__main__':
     import argparse
     parser = argparse.ArgumentParser()
     parser.add_argument('-c', '--config', type=str,default=r'D:\YOLO\DEIM\DEIM_20251224\DEIM\configs\yaml\user_deim_dfine_hgnetv2_n_mg.yml',)
-    parser.add_argument('-r', '--resume', type=str,default=r'D:\YOLO\DEIM\DEIM_20251224\DEIM\outputs\deim_hgnetv2_n_custom12\best_stg1.pth')
+    parser.add_argument('-r', '--resume', type=str,default=r'D:\YOLO\DEIM\DEIM_20251224\DEIM\outputs\deim_hgnetv2_n_custom20\best_stg1.pth')
     parser.add_argument('-i', '--input', type=str, default=r'D:\YOLO\dataset\RomWeldArea\images/val')
     parser.add_argument('-o', '--output', type=str, default='D:/YOLO/DEIM/DEIM_20251224/DEIM/inference_results/exp')
     parser.add_argument('-t', '--thrh', type=float, default=0.5)
