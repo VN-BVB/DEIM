@@ -158,3 +158,5 @@ dataset/YOLO_Format/labels/train/
 dataset/YOLO_Format/labels/val/
 dataset/YOLO_Format/annotations/
 outputs_Seg
+dataset/DATA/YOLO_Format
+dataset/YOLO_Format/labels/

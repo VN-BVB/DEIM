@@ -116,13 +116,13 @@ if __name__ == '__main__':
         '-c', '--config',
         type=str,
         # default=r'D:\YOLO\DEIM\DEIM_20251224\DEIM\configs\yaml\user_deim_dfine_hgnetv2_n_mg.yml',
-        default=r'D:\YOLO\DEIM\DEIM_20251224\DEIM\configs\seg\define-s-seg_MG.yml',
+        default=r'D:\Liyinchi\deimgit\DEIM\configs\seg\define-s-seg_MG.yml',
         help='config file path'
     )
-    parser.add_argument('-r', '--resume', type=str, default=r'D:\YOLO\DEIM\DEIM_20251224\DEIM\outputs_Seg\dfine_hgnetv2_s_custom\last.pth')
-    # parser.add_argument('-r', '--resume', type=str,default=None)
+    # parser.add_argument('-r', '--resume', type=str, default=r'D:\YOLO\DEIM\DEIM_20251224\DEIM\outputs_Seg\dfine_hgnetv2_s_custom\last.pth')
+    parser.add_argument('-r', '--resume', type=str,default=None)
     parser.add_argument('-t', '--tuning', type=str,default=None)
-    # parser.add_argument('-t', '--tuning', type=str, default=r'D:\YOLO\DEIM\DEIM_20251224\DEIM\weight\seg\define-n-seg.pth')
+    # parser.add_argument('-t', '--tuning', type=str, default=r'D:\Liyinchi\deimgit\DEIM\weight\seg\define-s-seg.pth')
     parser.add_argument('-d', '--device', type=str, default=None)
     parser.add_argument('--seed', type=int, default=0)
     parser.add_argument('--use-amp', action='store_true', default=False)

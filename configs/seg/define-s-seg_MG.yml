@@ -14,7 +14,7 @@ postprocessor: SegPostProcessor #后处理器
 model: DEIM_MG
 
 DEIM_MG:
-  yaml_path: D:/YOLO/DEIM/DEIM_20251224/DEIM/configs/cfg/define-s-seg.yaml
+  yaml_path: D:\Liyinchi\deimgit\DEIM\configs\cfg\define-s-test.yaml
 DEIM:
   backbone: HGNetv2
   decoder: DFINESegTransformer

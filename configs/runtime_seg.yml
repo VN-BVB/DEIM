@@ -22,4 +22,4 @@ ema:
 cache_imgsz: 1024
 ram_cache: True # 加图片到内存中，加快训练速度
 
-yolo_metrice: True # 需要输出YOLO指标的设置为True
+yolo_metrice: False # 需要输出YOLO指标的设置为True
